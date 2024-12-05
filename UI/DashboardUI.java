@@ -313,8 +313,9 @@ public class DashboardUI {
 
     public void checkForAlerts() {
         boolean lowStock = false;  // Change for testing
-        boolean recall = true;   // Change for testing
+        boolean recall = false;   // Change for testing
         boolean expired = false;   // Change for testing
+        boolean backorder = true;  //Change for testing
 
         if (expired) {
             updateNotification("Alert: Some medications are close to their expiry date!", true, false);
@@ -322,6 +323,8 @@ public class DashboardUI {
             updateNotification("Alert: Product recall issued for: Batch A443, Name: Tyzera, 80 units. Dispose of all stock Immediately", true, true);
         } else if (lowStock) {
             updateNotification("Alert: Low stock on some items!", true, false);
+        } else if (backorder) {
+            updateNotification("Alert: The following medications are currently on back-order and are expected to be delivered by December 28, 2024. Medications: Tyzera 80mg, Zantac 150mg.", true, false);
         } else {
             updateNotification("No new notifications", false, false);
         }
